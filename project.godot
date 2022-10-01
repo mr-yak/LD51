@@ -31,4 +31,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_environment="res://Rescources/default_env.tres"
+environment/default_environment="res://Resources/default_env.tres"
