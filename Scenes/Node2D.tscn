@@ -1,7 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/First Asset pack.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Timer_Progress.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/MouseFollow.gd" type="Script" id=5]
@@ -64,7 +63,6 @@ tile_set = SubResource( 1 )
 cell_size = Vector2( 36, 36 )
 format = 1
 tile_data = PoolIntArray( -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0 )
-script = ExtResource( 2 )
 
 [node name="Timers" type="Node2D" parent="."]
 
@@ -109,11 +107,11 @@ script = ExtResource( 3 )
 wait_time = 10.0
 autostart = true
 
-[node name="MouseFollow" type="Sprite" parent="."]
+[node name="MouseFollow" type="Sprite" parent="UI"]
 position = Vector2( -117.25, 24.25 )
 scale = Vector2( 0.048125, 0.048125 )
-texture = ExtResource( 6 )
 script = ExtResource( 5 )
 
 [connection signal="item_selected" from="UI/ItemList" to="." method="_on_ItemList_item_selected"]
+[connection signal="nothing_selected" from="UI/ItemList" to="." method="_on_ItemList_nothing_selected"]
 [connection signal="timeout" from="UI/Timer_Progress/Quota_Timer" to="UI/Timer_Progress" method="_on_Quota_Timer_timeout"]
