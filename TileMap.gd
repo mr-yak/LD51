@@ -11,8 +11,8 @@ func _ready():
 	cells = get_used_cells()
 	pass # Replace with function body.
 
-func _unhandled_input(event):
-	if event.is_pressed():
+func _process(delta):
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		var pos = world_to_map(get_local_mouse_position())
 		print(pos)
 		if cells.has(pos):
