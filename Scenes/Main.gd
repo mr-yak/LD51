@@ -67,6 +67,8 @@ func add_to_inventory(seed_num):
 	items_in_list.append(seeds.texture[seed_num])
 
 func _on_ItemList_item_selected(index):
+	if mouse.texture != null:
+		inventory.add_icon_item(mouse.texture)
 	mouse.texture = inventory.get_item_icon(index)
 	inventory.remove_item(index)
 	mouse.seed_holding = 1
@@ -75,5 +77,6 @@ func _on_ItemList_nothing_selected():
 	inventory.add_icon_item(mouse.texture)
 	mouse.texture = null
 	mouse.seed_holding = 0
-	if inventory.get_item_count() != items_in_list.size():
-		print("uh oh duping time")
+	inventory.clear()
+	for i in items_in_list:
+		inventory.add_icon_item(i)
