@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/First Asset pack.png-c90eda3897cf0016110c389aed5de338.stex"
+path="res://.import/First Asset pack.png-8cec18b3636c48422cb9417f4dcd2690.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://First Asset pack.png"
-dest_files=[ "res://.import/First Asset pack.png-c90eda3897cf0016110c389aed5de338.stex" ]
+source_file="res://Assets/First Asset pack.png"
+dest_files=[ "res://.import/First Asset pack.png-8cec18b3636c48422cb9417f4dcd2690.stex" ]
 
 [params]
 

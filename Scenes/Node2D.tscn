@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://First Asset pack.png" type="Texture" id=1]
-[ext_resource path="res://TileMap.gd" type="Script" id=2]
+[ext_resource path="res://Assets/First Asset pack.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=2]
 
 [sub_resource type="TileSet" id=1]
 0/name = "First Asset pack.png 0"
