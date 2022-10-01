@@ -8,8 +8,9 @@ func _ready():
 	var timers = [cells.size()]
 	for cell in cells:
 		var index = cells.find(cell)
-		print(cells.size())
-		#timers[index] = Timer.new()
+		timers.insert(index, Timer.new()) 
+		timers[index].autostart = true
+		timers[index].wait_time = 10.0
 		timers_node.add_child(timers[index])
 
 func _process(delta):
