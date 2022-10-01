@@ -15,8 +15,6 @@ onready var timers_node = get_tree().get_root().get_node("Main/Timers")
 func _ready():
 	cells = tiles.get_used_cells()
 	print(seeds.name[0])
-	add_to_inventory(0)
-	add_to_inventory(1)
 
 func _process(delta):
 	$UI/Coin_Count.text = String(coins)
@@ -65,10 +63,6 @@ func collect_crop(crop_pos):
 func add_to_inventory(seed_num):
 	inventory.add_icon_item(seeds.texture[seed_num])
 	items_in_list.append(seeds.texture[seed_num])
-
-func unlock(index):
-	print(index)
-	pass
 
 func _on_ItemList_item_selected(index):
 	if mouse.texture != null:
