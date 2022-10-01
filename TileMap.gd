@@ -17,4 +17,12 @@ func _process(delta):
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		var pos = world_to_map(get_local_mouse_position())
 		if cells.has(pos):
-			set_cellv(pos, 1)
+			var cell_type = get_cellv(pos)
+			if cell_type == 2:
+				collect_crop(pos)
+			elif cell_type == 0:
+				set_cellv(pos, 1)
+
+func collect_crop(crop_position):
+	print("crop should be collected now (TODO)")
+	
