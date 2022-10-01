@@ -8,5 +8,7 @@ func _ready():
 
 
 func _on_Shop_item_selected(index):
+	unselect(index)
+	set_item_disabled(index, true)
 	get_tree().get_root().get_node("Main").unlock(index)
-	remove_item(index)
+	
