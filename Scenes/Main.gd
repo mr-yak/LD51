@@ -2,9 +2,11 @@ extends Node2D
 
 var coins = 0;
 var item1 = load("res://seeds/seed.png")
+var seeds = load("res://Resources/seeds.tres")
 onready var mouse = get_tree().get_root().get_node("Main/UI/MouseFollow")
 onready var inventory = $UI/ItemList
 onready var tiles = $TileMap
+var items_in_list = []
 
 var planting_mode = false
 var cells
@@ -12,8 +14,9 @@ onready var timers_node = get_tree().get_root().get_node("Main/Timers")
 
 func _ready():
 	cells = tiles.get_used_cells()
-	
-	inventory.add_icon_item(item1)
+	print(seeds.name[0])
+	add_to_inventory(0)
+	add_to_inventory(1)
 
 func _process(delta):
 	$UI/Coin_Count.text = String(coins)
@@ -22,11 +25,14 @@ func _process(delta):
 		var pos = tiles.world_to_map(tiles.get_local_mouse_position())
 		if cells.has(pos):
 			var cell_type = tiles.get_cellv(pos)
+			if cell_type == 0 and planting_mode and mouse.seed_holding == 1:
+				plant_crop(pos)
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+		var pos = tiles.world_to_map(tiles.get_local_mouse_position())
+		if cells.has(pos):
+			var cell_type = tiles.get_cellv(pos)
 			if cell_type == 2 and planting_mode == false:
 				collect_crop(pos)
-			elif cell_type == 0 and planting_mode and mouse.seed_holding == 1:
-				plant_crop(pos)
-
 
 func _on_timer_timeout(pos, timer_node):
 	timer_node.queue_free()
@@ -34,6 +40,8 @@ func _on_timer_timeout(pos, timer_node):
 
 func _unhandled_input(event):
 	if event.is_pressed():
+		if mouse.texture != null and event.is_action("click"):
+			_on_ItemList_nothing_selected()
 		var pos = tiles.world_to_map(tiles.get_local_mouse_position())
 		if cells.has(pos):
 			var cell_type = tiles.get_cellv(pos)
@@ -54,14 +62,18 @@ func collect_crop(crop_pos):
 	tiles.set_cellv(crop_pos, 0)
 	coins += 1
 
-
+func add_to_inventory(seed_num):
+	inventory.add_icon_item(seeds.texture[seed_num])
+	items_in_list.append(seeds.texture[seed_num])
 
 func _on_ItemList_item_selected(index):
+	mouse.texture = inventory.get_item_icon(index)
 	inventory.remove_item(index)
-	mouse.texture = item1
 	mouse.seed_holding = 1
 
 func _on_ItemList_nothing_selected():
 	inventory.add_icon_item(mouse.texture)
 	mouse.texture = null
 	mouse.seed_holding = 0
+	if inventory.get_item_count() != items_in_list.size():
+		print("uh oh duping time")

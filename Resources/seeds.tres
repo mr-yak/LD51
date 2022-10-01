@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "
+var name = [\"Starter\", \"Second\"]
+var cost = [1, 2]
+var texture = [load(\"res://seeds/seed.png\"), load(\"res://seeds/sea_seed.png\")]
+"
+
+[resource]
+script = SubResource( 1 )
