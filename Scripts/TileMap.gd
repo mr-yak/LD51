@@ -6,17 +6,8 @@ onready var timers_node = get_tree().get_root().get_node("Main/Timers")
 
 func _ready():
 	cells = get_used_cells()
-#	var timers = [cells.size()]
-#	for cell in cells:
-#		var index = cells.find(cell)
-#		timers.insert(index, Timer.new()) 
-#		timers[index].connect("timeout",self,"_on_timer_timeout", [cell]) 
-#		timers[index].wait_time = 10.0
-#		timers[index].autostart = true
-#		timers_node.add_child(timers[index])
 
 func _on_timer_timeout(pos, timer_node):
-	print("timer worked: " + String(pos))
 	timer_node.queue_free()
 	set_cellv(pos, 2)
 
@@ -43,7 +34,6 @@ func _process(delta):
 
 func plant_crop(crop_pos):
 	set_cellv(crop_pos, 1)
-	print("yes")
 	var timer = Timer.new()
 	timer.connect("timeout",self,"_on_timer_timeout", [crop_pos, timer]) 
 	timer.wait_time = 10.0
