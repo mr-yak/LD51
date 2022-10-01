@@ -42,5 +42,6 @@ func plant_crop(crop_pos):
 
 func collect_crop(crop_pos):
 	set_cellv(crop_pos, 0)
+	get_parent().coins += 1
 	print("crop should be collected now (TODO)")
 	
