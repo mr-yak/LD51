@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Resources/Fonts/Main_Font.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/First Asset pack.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Timer_Progress.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/MouseFollow.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Shop.gd" type="Script" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "First Asset pack.png 0"
@@ -119,7 +120,9 @@ anchor_bottom = 0.197
 margin_right = 74.0
 margin_bottom = 218.0
 fixed_icon_size = Vector2( 64, 64 )
+script = ExtResource( 6 )
 
 [connection signal="item_selected" from="UI/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="nothing_selected" from="UI/ItemList" to="." method="_on_ItemList_nothing_selected"]
 [connection signal="timeout" from="UI/Timer_Progress/Quota_Timer" to="UI/Timer_Progress" method="_on_Quota_Timer_timeout"]
+[connection signal="item_selected" from="UI/Shop" to="UI/Shop" method="_on_Shop_item_selected"]

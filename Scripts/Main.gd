@@ -66,6 +66,10 @@ func add_to_inventory(seed_num):
 	inventory.add_icon_item(seeds.texture[seed_num])
 	items_in_list.append(seeds.texture[seed_num])
 
+func unlock(index):
+	print(index)
+	pass
+
 func _on_ItemList_item_selected(index):
 	if mouse.texture != null:
 		inventory.add_icon_item(mouse.texture)
@@ -80,3 +84,5 @@ func _on_ItemList_nothing_selected():
 	inventory.clear()
 	for i in items_in_list:
 		inventory.add_icon_item(i)
+		
+
