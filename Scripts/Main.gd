@@ -25,8 +25,8 @@ func _process(delta):
 		var pos = tiles.world_to_map(tiles.get_local_mouse_position())
 		if cells.has(pos):
 			var cell_type = tiles.get_cellv(pos)
-			if cell_type == 0 and planting_mode and mouse.seed_holding == 1:
-				plant_crop(pos)
+			if cell_type == 0 and planting_mode and mouse.seed_holding != 0:
+				plant_crop(pos, mouse.seed_holding)
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		var pos = tiles.world_to_map(tiles.get_local_mouse_position())
 		if cells.has(pos):
@@ -50,7 +50,7 @@ func _unhandled_input(event):
 			elif cell_type == 0:
 				planting_mode = true
 
-func plant_crop(crop_pos):
+func plant_crop(crop_pos, crop_type):
 	tiles.set_cellv(crop_pos, 1)
 	var timer = Timer.new()
 	timer.connect("timeout",self,"_on_timer_timeout", [crop_pos, timer]) 
