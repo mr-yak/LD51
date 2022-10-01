@@ -12,8 +12,8 @@ func _ready():
 		#timers[index] = Timer.new()
 		timers_node.add_child(timers[index])
 
-func _unhandled_input(event):
-	if event.is_pressed():
+func _process(delta):
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		var pos = world_to_map(get_local_mouse_position())
 		if cells.has(pos):
 			set_cellv(pos, 1)
