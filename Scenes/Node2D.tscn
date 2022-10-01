@@ -104,6 +104,8 @@ wait_time = 10.0
 autostart = true
 
 [node name="MouseFollow" type="Sprite" parent="."]
+position = Vector2( -117.25, 24.25 )
+scale = Vector2( 0.048125, 0.048125 )
 texture = ExtResource( 6 )
 script = ExtResource( 5 )
 
