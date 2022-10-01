@@ -15,8 +15,9 @@ func _ready():
 #		timers[index].autostart = true
 #		timers_node.add_child(timers[index])
 
-func _on_timer_timeout(pos, timer_name):
-	print("timer "+ timer_name + "worked: " + String(pos))
+func _on_timer_timeout(pos, timer_node):
+	print("timer worked: " + String(pos))
+	timer_node.queue_free()
 	set_cellv(pos, 2)
 
 func _unhandled_input(event):
@@ -44,7 +45,7 @@ func plant_crop(crop_pos):
 	set_cellv(crop_pos, 1)
 	print("yes")
 	var timer = Timer.new()
-	timer.connect("timeout",self,"_on_timer_timeout", [crop_pos, timer.name]) 
+	timer.connect("timeout",self,"_on_timer_timeout", [crop_pos, timer]) 
 	timer.wait_time = 10.0
 	timer.autostart = true
 	timers_node.add_child(timer)
