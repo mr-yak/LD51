@@ -24,6 +24,7 @@ func _ready():
 	crop_array_init()
 	cells = tiles.get_used_cells()
 	print(seeds.name[0])
+	print(tiles.get_cell(0,0))
 
 func crop_array_init():
 	for x in range(7):
