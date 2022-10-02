@@ -4,7 +4,7 @@ var bought = []
 var seed_number = 2
 onready var main = get_tree().get_root().get_node("Main")
 func _ready():
-	for i in range(seed_number):
+	for i in range(seeds.name.size()):
 		bought.append(false)
 		add_icon_item(seeds.texture[i])
 		set_item_selectable(i, false)
