@@ -5,6 +5,6 @@ var seed_holding = 0
 func _ready():
 	pass 
 	
-func _process(delta):
+func _process(_delta):
 	position = get_global_mouse_position()
 	pass

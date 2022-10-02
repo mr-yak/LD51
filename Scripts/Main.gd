@@ -29,9 +29,9 @@ func _ready():
 func crop_array_init():
 	for x in range(10):
 		crops.append([])
-		for y in range(10):
+		for _y in range(10):
 			crops[x].append(0)
-func _process(delta):
+func _process(_delta):
 	$UI/Coin_Count.text = "$" + String(coins)
 	
 	if Input.is_mouse_button_pressed(BUTTON_RIGHT):
@@ -67,6 +67,7 @@ func _unhandled_input(event):
 
 func plant_crop(crop_pos, crop_type):
 	if(coins - planting_costs[crop_type]>=0):
+		$Sounds/PlantSFX.play()
 		coins -= planting_costs[crop_type]
 		tiles.set_cellv(crop_pos, seeds.tile_index_seed[crop_type])
 		save_crop(crop_pos, crop_type)
@@ -75,6 +76,8 @@ func plant_crop(crop_pos, crop_type):
 		timer.wait_time = 2.0
 		timer.autostart = true
 		timers_node.add_child(timer)
+	elif(!$Sounds/RejectSFX.playing):
+		$Sounds/RejectSFX.play()
 
 func _on_timer_1_timeout(pos, timer_node, time, crop_type):
 	print("timer 1 timeout")
@@ -92,15 +95,19 @@ func _on_timer_2_timeout(pos, timer_node, crop_type):
 	timer_node.queue_free()
 
 func collect_crop(crop_pos):
+	$Sounds/HarvestSFX.play()
 	coins += crop_value[get_crop_type(crop_pos)]
 	tiles.set_cellv(crop_pos, 1)
 
 func add_to_inventory(seed_num):
 	if(coins - unlock_cost[seed_num]>=0):
+		$Sounds/CoinSFX.play()
 		$UI/Shop.set_item_disabled(seed_num, true)
 		inventory.add_icon_item(seeds.texture[seed_num])
 		items_in_list.append(seeds.texture[seed_num])
 		coins -= unlock_cost[seed_num]
+	elif(!$Sounds/RejectSFX.playing):
+		$Sounds/RejectSFX.play()
 
 func _on_ItemList_item_selected(index):
 	if mouse.texture != null:

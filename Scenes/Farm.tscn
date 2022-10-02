@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Resources/Fonts/Main_Font.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Sound Effects/Harvest.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scripts/Timer_Progress.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/MouseFollow.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Shop.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Sound Effects/Plant.wav" type="AudioStream" id=7]
 [ext_resource path="res://Assets/LD51.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sound Effects/Coin.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sound Effects/Reject.wav" type="AudioStream" id=10]
 
 [sub_resource type="TileSet" id=1]
 1/name = "LD51.png 1"
@@ -138,8 +142,21 @@ margin_bottom = 218.0
 fixed_icon_size = Vector2( 64, 64 )
 script = ExtResource( 6 )
 
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="CoinSFX" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 9 )
+
+[node name="HarvestSFX" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 2 )
+
+[node name="PlantSFX" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 7 )
+
+[node name="RejectSFX" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 10 )
+
 [connection signal="item_selected" from="UI/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="nothing_selected" from="UI/ItemList" to="." method="_on_ItemList_nothing_selected"]
 [connection signal="timeout" from="UI/Timer_Progress/Quota_Timer" to="UI/Timer_Progress" method="_on_Quota_Timer_timeout"]
-[connection signal="item_activated" from="UI/Shop" to="UI/Shop" method="_on_Shop_item_activated"]
 [connection signal="item_selected" from="UI/Shop" to="UI/Shop" method="_on_Shop_item_selected"]

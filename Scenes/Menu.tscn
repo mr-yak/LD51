@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Fonts/m6x11.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Start.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sound Effects/Menu.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -43,4 +44,10 @@ theme = SubResource( 4 )
 text = "Play"
 script = ExtResource( 2 )
 
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="ButtonSFX" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 3 )
+
 [connection signal="button_up" from="Button" to="Button" method="_on_Button_button_up"]
+[connection signal="finished" from="Sounds/ButtonSFX" to="Button" method="_on_ButtonSFX_finished"]
