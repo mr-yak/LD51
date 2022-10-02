@@ -1,8 +1,5 @@
 extends Node2D
 
-var planting_costs = [100, 200] 
-var crop_value = [200, 500]
-var unlock_cost = [0, 1500]
 var crops = []
 
 
@@ -14,7 +11,6 @@ onready var inventory = $UI/ItemList
 onready var tiles = $TileMap
 var items_in_list = []
 
-var planting_mode = false
 var cells
 onready var timers_node = get_tree().get_root().get_node("Main/Timers")
 
@@ -45,7 +41,7 @@ func _process(_delta):
 		if cells.has(pos):
 			var cell_type = tiles.get_cellv(pos)
 			if seeds.tile_index_grown.has(cell_type):
-				collect_crop(pos)
+				collect_crop(pos, seeds.tile_index_grown.find(cell_type))
 
 func save_crop(pos,crop_type):
 	crops[pos.x][pos.y] = crop_type
@@ -57,18 +53,11 @@ func _unhandled_input(event):
 	if event.is_pressed():
 		if mouse.texture != null and event.is_action("click"):
 			_on_ItemList_nothing_selected()
-		var pos = tiles.world_to_map(tiles.get_local_mouse_position())
-		if cells.has(pos):
-			var cell_type = tiles.get_cellv(pos)
-			if cell_type == 2: 
-				planting_mode = false
-			elif cell_type == 1:
-				planting_mode = true
 
 func plant_crop(crop_pos, crop_type):
 	if(coins - planting_costs[crop_type]>=0):
 		$Sounds/PlantSFX.play()
-		coins -= planting_costs[crop_type]
+		coins -= seeds.planting_cost[crop_type]
 		tiles.set_cellv(crop_pos, seeds.tile_index_seed[crop_type])
 		save_crop(crop_pos, crop_type)
 		var timer = Timer.new()
@@ -94,20 +83,23 @@ func _on_timer_2_timeout(pos, timer_node, crop_type):
 	tiles.set_cellv(pos, seeds.tile_index_grown[crop_type])
 	timer_node.queue_free()
 
-func collect_crop(crop_pos):
+
+func collect_crop(crop_pos, crop_index):
 	$Sounds/HarvestSFX.play()
-	coins += crop_value[get_crop_type(crop_pos)]
+	coins += seeds.value[crop_index]
 	tiles.set_cellv(crop_pos, 1)
 
 func add_to_inventory(seed_num):
-	if(coins - unlock_cost[seed_num]>=0):
+	if(coins - seeds.unlock_cost[seed_num]>=0):
 		$Sounds/CoinSFX.play()
 		$UI/Shop.set_item_disabled(seed_num, true)
 		inventory.add_icon_item(seeds.texture[seed_num])
 		items_in_list.append(seeds.texture[seed_num])
-		coins -= unlock_cost[seed_num]
+		coins -= seeds.unlock_cost[seed_num]
 	elif(!$Sounds/RejectSFX.playing):
 		$Sounds/RejectSFX.play()
+
+
 
 func _on_ItemList_item_selected(index):
 	if mouse.texture != null:
