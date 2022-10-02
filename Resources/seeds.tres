@@ -1,9 +1,10 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
 [sub_resource type="GDScript" id=1]
-script/source = "
-var name = [\"Starter\", \"Second\"]
-var cost = [1, 2]
+script/source = "var name = [\"Starter\", \"Second\"]
+var planting_cost = [100, 200]
+var unlock_cost = [0, 1500]
+var value = [200, 500]
 var texture = [load(\"res://seeds/seed.png\"), load(\"res://seeds/sea_seed.png\")]
 var tile_index_seed = [2]
 var tile_index_growing = [3]
