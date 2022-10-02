@@ -27,9 +27,9 @@ func _ready():
 	print(tiles.get_cell(0,0))
 
 func crop_array_init():
-	for x in range(7):
+	for x in range(10):
 		crops.append([])
-		for y in range(6):
+		for y in range(10):
 			crops[x].append(0)
 func _process(delta):
 	$UI/Coin_Count.text = "$" + String(coins)
