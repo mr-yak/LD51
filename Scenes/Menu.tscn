@@ -1,22 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/Fonts/m6x11.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scripts/Start.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Fonts/Button.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/Quit_game.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sound Effects/Menu.wav" type="AudioStream" id=3]
-
-[sub_resource type="DynamicFont" id=1]
-size = 100
-font_data = ExtResource( 1 )
-
-[sub_resource type="Theme" id=2]
-default_font = SubResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 32
-font_data = ExtResource( 1 )
-
-[sub_resource type="Theme" id=4]
-default_font = SubResource( 3 )
+[ext_resource path="res://Resources/Fonts/Title_Theme.tres" type="Theme" id=4]
+[ext_resource path="res://Scripts/Play.gd" type="Script" id=5]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -28,20 +16,31 @@ anchor_right = 1.0
 anchor_bottom = 0.25
 margin_top = 0.200001
 margin_bottom = 88.2
-theme = SubResource( 2 )
+theme = ExtResource( 4 )
 text = "10 Second Farm"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Play" type="Button" parent="."]
 anchor_left = 0.1
 anchor_top = 0.5
 anchor_right = 0.9
 anchor_bottom = 0.55
 margin_right = 12.0
 margin_bottom = 20.0
-theme = SubResource( 4 )
+theme = ExtResource( 1 )
 text = "Play"
+script = ExtResource( 5 )
+
+[node name="Quit" type="Button" parent="."]
+anchor_left = 0.1
+anchor_top = 0.65
+anchor_right = 0.9
+anchor_bottom = 0.7
+margin_right = 12.0
+margin_bottom = 23.0
+theme = ExtResource( 1 )
+text = "Quit"
 script = ExtResource( 2 )
 
 [node name="Sounds" type="Node2D" parent="."]
@@ -49,5 +48,6 @@ script = ExtResource( 2 )
 [node name="ButtonSFX" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource( 3 )
 
-[connection signal="button_up" from="Button" to="Button" method="_on_Button_button_up"]
-[connection signal="finished" from="Sounds/ButtonSFX" to="Button" method="_on_ButtonSFX_finished"]
+[connection signal="button_up" from="Play" to="Play" method="_on_Play_button_up"]
+[connection signal="button_up" from="Quit" to="Quit" method="_on_Quit_button_up"]
+[connection signal="finished" from="Sounds/ButtonSFX" to="Play" method="_on_ButtonSFX_finished"]

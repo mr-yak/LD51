@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Resources/Fonts/Main_Font.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Sound Effects/Harvest.wav" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Sound Effects/Coin.wav" type="AudioStream" id=9]
 [ext_resource path="res://Assets/Sound Effects/Reject.wav" type="AudioStream" id=10]
 [ext_resource path="res://Scripts/Required_Coins.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Sound Effects/Quota.wav" type="AudioStream" id=12]
 
 [sub_resource type="TileSet" id=1]
 1/name = "LD51.png 1"
@@ -251,6 +252,9 @@ stream = ExtResource( 7 )
 
 [node name="RejectSFX" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource( 10 )
+
+[node name="QuotaSFX" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 12 )
 
 [connection signal="item_selected" from="UI/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="nothing_selected" from="UI/ItemList" to="." method="_on_ItemList_nothing_selected"]
