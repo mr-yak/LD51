@@ -34,8 +34,8 @@ func _process(_delta):
 		var pos = tiles.world_to_map(tiles.get_local_mouse_position())
 		if cells.has(pos):
 			var cell_type = tiles.get_cellv(pos)
-			if cell_type == 1 and mouse.seed_holding != 0:
-				plant_crop(pos, mouse.seed_holding - 1)
+			if cell_type == 1 and mouse.seed_holding != -1:
+				plant_crop(pos, mouse.seed_holding)
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		var pos = tiles.world_to_map(tiles.get_local_mouse_position())
 		if cells.has(pos):
@@ -55,7 +55,9 @@ func _unhandled_input(event):
 			_on_ItemList_nothing_selected()
 
 func plant_crop(crop_pos, crop_type):
-	if(coins - planting_costs[crop_type]>=0):
+	print(crop_type)
+	print(seeds.tile_index_seed)
+	if(coins - seeds.planting_cost[crop_type]>=0):
 		$Sounds/PlantSFX.play()
 		coins -= seeds.planting_cost[crop_type]
 		tiles.set_cellv(crop_pos, seeds.tile_index_seed[crop_type])
@@ -106,12 +108,12 @@ func _on_ItemList_item_selected(index):
 		inventory.add_icon_item(mouse.texture)
 	mouse.texture = inventory.get_item_icon(index)
 	inventory.remove_item(index)
-	mouse.seed_holding = 1
+	mouse.seed_holding = index
 
 func _on_ItemList_nothing_selected():
 	inventory.add_icon_item(mouse.texture)
 	mouse.texture = null
-	mouse.seed_holding = 0
+	mouse.seed_holding = -1
 	inventory.clear()
 	for i in items_in_list:
 		inventory.add_icon_item(i)

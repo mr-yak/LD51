@@ -1,6 +1,6 @@
 extends Sprite
 
-var seed_holding = 0
+var seed_holding = -1
 
 func _ready():
 	pass 
