@@ -4,8 +4,8 @@ var crops = []
 
 
 var coins = 1000;
-var item1 = load("res://seeds/seed.png")
 var seeds = load("res://Resources/seeds.tres")
+var transparent = load("res://Assets/transparent.png")
 onready var mouse = get_tree().get_root().get_node("Main/UI/MouseFollow")
 onready var inventory = $UI/ItemList
 onready var tiles = $TileMap
@@ -19,8 +19,6 @@ onready var timers_node = get_tree().get_root().get_node("Main/Timers")
 func _ready():
 	crop_array_init()
 	cells = tiles.get_used_cells()
-	print(seeds.name[0])
-	print(tiles.get_cell(0,0))
 
 func crop_array_init():
 	for x in range(10):
@@ -55,8 +53,6 @@ func _unhandled_input(event):
 			_on_ItemList_nothing_selected()
 
 func plant_crop(crop_pos, crop_type):
-	print(crop_type)
-	print(seeds.tile_index_seed)
 	if(coins - seeds.planting_cost[crop_type]>=0):
 		$Sounds/PlantSFX.play()
 		coins -= seeds.planting_cost[crop_type]
@@ -71,7 +67,6 @@ func plant_crop(crop_pos, crop_type):
 		$Sounds/RejectSFX.play()
 
 func _on_timer_1_timeout(pos, timer_node, time, crop_type):
-	print("timer 1 timeout")
 	timer_node.queue_free()
 	tiles.set_cellv(pos, seeds.tile_index_growing[crop_type])
 	var timer = Timer.new()
@@ -81,7 +76,6 @@ func _on_timer_1_timeout(pos, timer_node, time, crop_type):
 	timers_node.add_child(timer)
 
 func _on_timer_2_timeout(pos, timer_node, crop_type):
-	print("timer 2 timeout")
 	tiles.set_cellv(pos, seeds.tile_index_grown[crop_type])
 	timer_node.queue_free()
 
@@ -104,10 +98,13 @@ func add_to_inventory(seed_num):
 
 
 func _on_ItemList_item_selected(index):
+	inventory.unselect_all()
 	if mouse.texture != null:
-		inventory.add_icon_item(mouse.texture)
+		_on_ItemList_nothing_selected()
+		return
 	mouse.texture = inventory.get_item_icon(index)
-	inventory.remove_item(index)
+#	inventory.remove_item(index)
+	inventory.set_item_icon(index, transparent)
 	mouse.seed_holding = index
 
 func _on_ItemList_nothing_selected():
