@@ -38,13 +38,13 @@ func _process(delta):
 		var pos = tiles.world_to_map(tiles.get_local_mouse_position())
 		if cells.has(pos):
 			var cell_type = tiles.get_cellv(pos)
-			if cell_type == 1 and planting_mode and mouse.seed_holding != 0:
+			if cell_type == 1 and mouse.seed_holding != 0:
 				plant_crop(pos, mouse.seed_holding - 1)
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		var pos = tiles.world_to_map(tiles.get_local_mouse_position())
 		if cells.has(pos):
 			var cell_type = tiles.get_cellv(pos)
-			if cell_type == 2 and planting_mode == false:
+			if seeds.tile_index_grown.has(cell_type):
 				collect_crop(pos)
 
 func save_crop(pos,crop_type):
@@ -93,7 +93,7 @@ func _on_timer_2_timeout(pos, timer_node, crop_type):
 
 func collect_crop(crop_pos):
 	coins += crop_value[get_crop_type(crop_pos)]
-	tiles.set_cellv(crop_pos, 0)
+	tiles.set_cellv(crop_pos, 1)
 
 func add_to_inventory(seed_num):
 	if(coins - unlock_cost[seed_num]>=0):
