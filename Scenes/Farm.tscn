@@ -181,10 +181,10 @@ anchor_left = 0.017
 anchor_top = 0.197
 anchor_right = 0.017
 anchor_bottom = 0.197
-margin_left = -0.408001
-margin_top = -0.200005
-margin_right = 73.592
-margin_bottom = 217.8
+margin_left = -7.408
+margin_top = -14.2
+margin_right = 83.592
+margin_bottom = 457.8
 fixed_icon_size = Vector2( 64, 64 )
 
 [node name="Coin_Count" type="Label" parent="UI"]
@@ -229,27 +229,28 @@ scale = Vector2( 3, 3 )
 script = ExtResource( 4 )
 
 [node name="Shop" type="ItemList" parent="UI"]
-visible = false
 anchor_left = 0.146
 anchor_top = 0.197
 anchor_right = 0.146
 anchor_bottom = 0.197
-margin_left = 0.496002
-margin_top = -0.199997
-margin_right = 74.496
-margin_bottom = 70.8
+margin_left = -40.504
+margin_top = 377.8
+margin_right = 329.496
+margin_bottom = 457.8
+max_columns = 9
+same_column_width = true
 fixed_icon_size = Vector2( 64, 64 )
 script = ExtResource( 6 )
 
 [node name="NextSeed" type="TextureButton" parent="UI"]
-anchor_left = 0.136
-anchor_top = 0.258
-anchor_right = 0.136
-anchor_bottom = 0.258
-margin_left = -0.264008
-margin_top = 0.199997
-margin_right = 60.736
-margin_bottom = 61.2
+anchor_left = 0.117
+anchor_top = 0.712
+anchor_right = 0.117
+anchor_bottom = 0.712
+margin_left = 0.191994
+margin_top = -0.200012
+margin_right = 61.192
+margin_bottom = 60.8
 texture_normal = ExtResource( 13 )
 expand = true
 script = ExtResource( 14 )
