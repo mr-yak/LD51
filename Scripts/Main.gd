@@ -28,7 +28,7 @@ func crop_array_init():
 		for _y in range(10):
 			crops[x].append(0)
 func _process(_delta):
-	$UI/Coin_Count.text = "$" + String(coins)
+	$UI/Coin_Count.text = "Bank: $" + String(coins)
 	
 	if Input.is_mouse_button_pressed(BUTTON_RIGHT):
 		var pos = tiles.world_to_map(tiles.get_local_mouse_position())
