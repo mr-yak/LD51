@@ -11,7 +11,6 @@ func _ready():
 
 
 func _on_Shop_item_selected(index):
-	print("YES")
 	if(!bought[index] and main.coins - seeds.unlock_cost[index]>0):
 		bought[index] = true
 		get_tree().get_root().get_node("Main").add_to_inventory(index)

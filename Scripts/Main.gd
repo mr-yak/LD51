@@ -10,6 +10,7 @@ onready var mouse = get_tree().get_root().get_node("Main/UI/MouseFollow")
 onready var inventory = $UI/ItemList
 onready var tiles = $TileMap
 var items_in_list = []
+onready var seed_shop = $UI/NextSeed
 
 var cells
 onready var timers_node = get_tree().get_root().get_node("Main/Timers")
@@ -98,12 +99,13 @@ func add_to_inventory(seed_num):
 
 
 func _on_ItemList_item_selected(index):
+	print(index)
 	inventory.unselect_all()
 	if mouse.texture != null:
 		_on_ItemList_nothing_selected()
 		return
-	mouse.texture = inventory.get_item_icon(index)
-#	inventory.remove_item(index)
+	mouse.texture = seeds.texture[index]
+	inventory.remove_item(index)
 	inventory.set_item_icon(index, transparent)
 	mouse.seed_holding = index
 

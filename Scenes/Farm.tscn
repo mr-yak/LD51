@@ -225,8 +225,7 @@ wait_time = 10.0
 autostart = true
 
 [node name="MouseFollow" type="Sprite" parent="UI"]
-position = Vector2( -117.25, 24.25 )
-scale = Vector2( 0.048125, 0.048125 )
+scale = Vector2( 3, 3 )
 script = ExtResource( 4 )
 
 [node name="Shop" type="ItemList" parent="UI"]
