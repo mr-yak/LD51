@@ -125,4 +125,5 @@ script = ExtResource( 6 )
 [connection signal="item_selected" from="UI/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="nothing_selected" from="UI/ItemList" to="." method="_on_ItemList_nothing_selected"]
 [connection signal="timeout" from="UI/Timer_Progress/Quota_Timer" to="UI/Timer_Progress" method="_on_Quota_Timer_timeout"]
+[connection signal="item_activated" from="UI/Shop" to="UI/Shop" method="_on_Shop_item_activated"]
 [connection signal="item_selected" from="UI/Shop" to="UI/Shop" method="_on_Shop_item_selected"]

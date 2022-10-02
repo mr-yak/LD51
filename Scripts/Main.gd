@@ -78,8 +78,6 @@ func plant_crop(crop_pos, crop_type):
 		timer.wait_time = 10.0
 		timer.autostart = true
 		timers_node.add_child(timer)
-	else:
-		pass
 
 func collect_crop(crop_pos):
 	coins += crop_value[get_crop_type(crop_pos)]
@@ -91,8 +89,6 @@ func add_to_inventory(seed_num):
 		inventory.add_icon_item(seeds.texture[seed_num])
 		items_in_list.append(seeds.texture[seed_num])
 		coins -= unlock_cost[seed_num]
-	else:
-		pass
 
 func _on_ItemList_item_selected(index):
 	if mouse.texture != null:
