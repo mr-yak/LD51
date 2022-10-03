@@ -22,9 +22,9 @@ func _ready():
 	cells = tiles.get_used_cells()
 
 func crop_array_init():
-	for x in range(10):
+	for x in range(12):
 		crops.append([])
-		for _y in range(10):
+		for _y in range(12):
 			crops[x].append(0)
 func _process(_delta):
 	$UI/Coin_Count.text = "Bank: $" + String(coins)
