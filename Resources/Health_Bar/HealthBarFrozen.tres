@@ -1,0 +1,5 @@
+[gd_resource type="StreamTexture" format=2]
+
+[resource]
+flags = 4
+load_path = "res://.import/HealthBarFrozen.png-8756b2eff4c6e2c1f76b5d5a60e5e865.stex"

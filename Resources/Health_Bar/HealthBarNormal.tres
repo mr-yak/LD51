@@ -1,0 +1,5 @@
+[gd_resource type="StreamTexture" format=2]
+
+[resource]
+flags = 4
+load_path = "res://.import/HealthBarProgress.png-a91efd8ae23b359a3bc364538ae6a397.stex"

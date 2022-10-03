@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Resources/Fonts/Main_Font.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Sound Effects/Harvest.wav" type="AudioStream" id=2]
@@ -14,11 +14,14 @@
 [ext_resource path="res://Assets/Sound Effects/Quota.wav" type="AudioStream" id=12]
 [ext_resource path="res://Assets/Seeds/seed1.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/SeedShop.gd" type="Script" id=14]
-[ext_resource path="res://Assets/HealthBar/HealthBarProgress.png" type="Texture" id=15]
+[ext_resource path="res://Resources/Health_Bar/HealthBarNormal.tres" type="Texture" id=15]
 [ext_resource path="res://Assets/HealthBar/HealthBarUnder.png" type="Texture" id=16]
 [ext_resource path="res://Assets/HealthBar/HealthBarOver.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Sound Effects/Tick.wav" type="AudioStream" id=18]
 [ext_resource path="res://Assets/Fonts/m6x11.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://Scripts/Time_freeze.gd" type="Script" id=20]
+[ext_resource path="res://Scripts/Discount.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/Income.gd" type="Script" id=22]
 
 [sub_resource type="TileSet" id=1]
 1/name = "LD51.png 1"
@@ -186,6 +189,20 @@ tile_data = PoolIntArray( -262144, 1, 0, -262143, 1, 0, -262142, 1, 0, -262141, 
 
 [node name="Timers" type="Node2D" parent="."]
 
+[node name="Powerup_Timers" type="Node2D" parent="."]
+
+[node name="Time_freeze" type="Timer" parent="Powerup_Timers"]
+wait_time = 10.0
+script = ExtResource( 20 )
+
+[node name="Discount" type="Timer" parent="Powerup_Timers"]
+wait_time = 10.0
+script = ExtResource( 21 )
+
+[node name="Income" type="Timer" parent="Powerup_Timers"]
+wait_time = 10.0
+script = ExtResource( 22 )
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ItemList" type="ItemList" parent="UI"]
@@ -305,6 +322,9 @@ stream = ExtResource( 12 )
 stream = ExtResource( 18 )
 volume_db = 2.761
 
+[connection signal="timeout" from="Powerup_Timers/Time_freeze" to="Powerup_Timers/Time_freeze" method="_on_Time_freeze_timeout"]
+[connection signal="timeout" from="Powerup_Timers/Discount" to="Powerup_Timers/Discount" method="_on_Discount_timeout"]
+[connection signal="timeout" from="Powerup_Timers/Income" to="Powerup_Timers/Income" method="_on_Income_timeout"]
 [connection signal="item_selected" from="UI/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="nothing_selected" from="UI/ItemList" to="." method="_on_ItemList_nothing_selected"]
 [connection signal="timeout" from="UI/Timer_Progress/Quota_Timer" to="UI/Timer_Progress" method="_on_Quota_Timer_timeout"]

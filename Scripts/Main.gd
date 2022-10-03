@@ -9,13 +9,17 @@ var transparent = load("res://Assets/transparent.png")
 onready var mouse = get_tree().get_root().get_node("Main/UI/MouseFollow")
 onready var inventory = $UI/ItemList
 onready var tiles = $TileMap
+onready var quota_timer = $UI/Timer_Progress/Quota_Timer
 var items_in_list = []
 onready var seed_shop = $UI/NextSeed
 
 var cells
 onready var timers_node = get_tree().get_root().get_node("Main/Timers")
 
-
+var income = 1
+var discount = 1
+onready var frozen_tex = load("res://Resources/Health_Bar/HealthBarFrozen.tres")
+onready var normal_tex = load("res://Resources/Health_Bar/HealthBarNormal.tres")
 
 func _ready():
 	crop_array_init()
@@ -56,7 +60,7 @@ func _unhandled_input(event):
 func plant_crop(crop_pos, crop_type):
 	if(coins - seeds.planting_cost[crop_type]>=0):
 		$Sounds/PlantSFX.play()
-		coins -= seeds.planting_cost[crop_type]
+		coins -= discount*seeds.planting_cost[crop_type]
 		tiles.set_cellv(crop_pos, seeds.tile_index_seed[crop_type])
 		save_crop(crop_pos, crop_type)
 		var timer = Timer.new()
@@ -83,7 +87,7 @@ func _on_timer_2_timeout(pos, timer_node, crop_type):
 
 func collect_crop(crop_pos, crop_index):
 	$Sounds/HarvestSFX.play()
-	coins += seeds.value[crop_index]
+	coins += income*seeds.value[crop_index]
 	tiles.set_cellv(crop_pos, 1)
 
 func add_to_inventory(seed_num):
@@ -92,7 +96,7 @@ func add_to_inventory(seed_num):
 		$UI/Shop.set_item_disabled(seed_num, true)
 		inventory.add_icon_item(seeds.texture[seed_num])
 		items_in_list.append(seeds.texture[seed_num])
-		coins -= seeds.unlock_cost[seed_num]
+		coins -= discount*seeds.unlock_cost[seed_num]
 	elif(!$Sounds/RejectSFX.playing):
 		$Sounds/RejectSFX.play()
 
@@ -118,3 +122,21 @@ func _on_ItemList_nothing_selected():
 		inventory.add_icon_item(i)
 		
 
+
+func time_freeze_powerup():
+	$Powerup_Timers/Time_Freeze.start()
+	quota_timer.paused = true
+	quota_timer.get_parent().texture_progress = frozen_tex
+	
+func time_freeze_timeout():
+	quota_timer.paused = false
+	quota_timer.get_parent().texture_progress = normal_tex
+	
+	
+func discount():
+	discount = 0.5
+
+func income_double_ten_sec():
+	income = 2
+
+ 
