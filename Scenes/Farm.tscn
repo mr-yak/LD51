@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Resources/Fonts/Main_Font.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Sound Effects/Harvest.wav" type="AudioStream" id=2]
@@ -22,6 +22,9 @@
 [ext_resource path="res://Scripts/Time_freeze.gd" type="Script" id=20]
 [ext_resource path="res://Scripts/Discount.gd" type="Script" id=21]
 [ext_resource path="res://Scripts/Income.gd" type="Script" id=22]
+[ext_resource path="res://Assets/background.png" type="Texture" id=23]
+[ext_resource path="res://Assets/wall.png" type="Texture" id=24]
+[ext_resource path="res://Assets/melody-meadow_2.ogg" type="AudioStream" id=25]
 
 [sub_resource type="TileSet" id=1]
 1/name = "LD51.png 1"
@@ -164,9 +167,177 @@
 10/shape_one_way_margin = 0.0
 10/shapes = [  ]
 10/z_index = 0
+11/name = "LD51.png 11"
+11/texture = ExtResource( 8 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 16, 48, 16, 16 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "LD51.png 12"
+12/texture = ExtResource( 8 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 48, 48, 16, 16 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
+13/name = "LD51.png 13"
+13/texture = ExtResource( 8 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 64, 48, 16, 16 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
+14/name = "LD51.png 14"
+14/texture = ExtResource( 8 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 0, 32, 16, 16 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
+15/name = "LD51.png 15"
+15/texture = ExtResource( 8 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 0, 48, 16, 16 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape_one_way = false
+15/shape_one_way_margin = 0.0
+15/shapes = [  ]
+15/z_index = 0
+16/name = "LD51.png 16"
+16/texture = ExtResource( 8 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 0, 64, 16, 16 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/navigation_offset = Vector2( 0, 0 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape_one_way = false
+16/shape_one_way_margin = 0.0
+16/shapes = [  ]
+16/z_index = 0
+17/name = "LD51.png 17"
+17/texture = ExtResource( 8 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 16, 64, 16, 16 )
+17/tile_mode = 0
+17/occluder_offset = Vector2( 0, 0 )
+17/navigation_offset = Vector2( 0, 0 )
+17/shape_offset = Vector2( 0, 0 )
+17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+17/shape_one_way = false
+17/shape_one_way_margin = 0.0
+17/shapes = [  ]
+17/z_index = 0
+18/name = "LD51.png 18"
+18/texture = ExtResource( 8 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 48, 64, 16, 16 )
+18/tile_mode = 0
+18/occluder_offset = Vector2( 0, 0 )
+18/navigation_offset = Vector2( 0, 0 )
+18/shape_offset = Vector2( 0, 0 )
+18/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+18/shape_one_way = false
+18/shape_one_way_margin = 0.0
+18/shapes = [  ]
+18/z_index = 0
+19/name = "LD51.png 19"
+19/texture = ExtResource( 8 )
+19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 64, 64, 16, 16 )
+19/tile_mode = 0
+19/occluder_offset = Vector2( 0, 0 )
+19/navigation_offset = Vector2( 0, 0 )
+19/shape_offset = Vector2( 0, 0 )
+19/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+19/shape_one_way = false
+19/shape_one_way_margin = 0.0
+19/shapes = [  ]
+19/z_index = 0
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="Theme" id=10]
+ItemList/colors/font_color = Color( 0.631373, 0.631373, 0.631373, 0 )
+ItemList/colors/font_color_selected = Color( 1, 1, 1, 0 )
+ItemList/colors/guide_color = Color( 0, 0, 0, 0 )
+ItemList/styles/bg = SubResource( 4 )
+ItemList/styles/bg_focus = SubResource( 5 )
+ItemList/styles/cursor = SubResource( 6 )
+ItemList/styles/cursor_unfocused = SubResource( 7 )
+ItemList/styles/selected = SubResource( 8 )
+ItemList/styles/selected_focus = SubResource( 9 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="Theme" id=17]
+ItemList/styles/bg = SubResource( 11 )
+ItemList/styles/bg_focus = SubResource( 12 )
+ItemList/styles/cursor = SubResource( 13 )
+ItemList/styles/cursor_unfocused = SubResource( 14 )
+ItemList/styles/selected = SubResource( 15 )
+ItemList/styles/selected_focus = SubResource( 16 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 32
 font_data = ExtResource( 19 )
 
 [sub_resource type="Theme" id=3]
@@ -179,13 +350,23 @@ script = ExtResource( 5 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 421, 118 )
+scale = Vector2( 1.56852, 1.56852 )
+texture = ExtResource( 23 )
+
+[node name="Wall" type="Sprite" parent="."]
+position = Vector2( -219.5, 20.5 )
+scale = Vector2( 1.15625, 0.871094 )
+texture = ExtResource( 24 )
+
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 1.5, 1.5 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 64
 format = 1
-tile_data = PoolIntArray( -262144, 1, 0, -262143, 1, 0, -262142, 1, 0, -262141, 1, 0, -262140, 1, 0, -262139, 1, 0, -262138, 1, 0, -262137, 1, 0, -262136, 1, 0, -262135, 1, 0, -196608, 1, 0, -196607, 1, 0, -196606, 1, 0, -196605, 1, 0, -196604, 1, 0, -196603, 1, 0, -196602, 1, 0, -196601, 1, 0, -196600, 1, 0, -196599, 1, 0, -131072, 1, 0, -131071, 1, 0, -131070, 1, 0, -131069, 1, 0, -131068, 1, 0, -131067, 1, 0, -131066, 1, 0, -131065, 1, 0, -131064, 1, 0, -131063, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0 )
+tile_data = PoolIntArray( -131080, 1, 0, -131079, 1, 0, -131078, 1, 0, -131077, 1, 0, -131076, 1, 0, -131075, 1, 0, -131074, 1, 0, -131073, 1, 0, -196608, 1, 0, -196607, 1, 0, -196606, 1, 0, -196605, 1, 0, -196604, 1, 0, -196603, 1, 0, -196602, 1, 0, -196601, 1, 0, -196600, 1, 0, -65544, 1, 0, -65543, 1, 0, -65542, 1, 0, -65541, 1, 0, -65540, 1, 0, -65539, 1, 0, -65538, 1, 0, -65537, 1, 0, -131072, 1, 0, -131071, 1, 0, -131070, 1, 0, -131069, 1, 0, -131068, 1, 0, -131067, 1, 0, -131066, 1, 0, -131065, 1, 0, -131064, 1, 0, -8, 1, 0, -7, 1, 0, -6, 1, 0, -5, 1, 0, -4, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, 65528, 1, 0, 65529, 1, 0, 65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 131064, 1, 0, 131065, 1, 0, 131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 196605, 1, 0, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 327677, 1, 0, 327678, 1, 0, 327679, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0 )
 
 [node name="Timers" type="Node2D" parent="."]
 
@@ -193,6 +374,7 @@ tile_data = PoolIntArray( -262144, 1, 0, -262143, 1, 0, -262142, 1, 0, -262141, 
 
 [node name="Time_freeze" type="Timer" parent="Powerup_Timers"]
 wait_time = 10.0
+one_shot = true
 script = ExtResource( 20 )
 
 [node name="Discount" type="Timer" parent="Powerup_Timers"]
@@ -210,10 +392,11 @@ anchor_left = 0.017
 anchor_top = 0.197
 anchor_right = 0.017
 anchor_bottom = 0.197
-margin_left = -7.408
-margin_top = -14.2
-margin_right = 83.592
-margin_bottom = 457.8
+margin_left = -7.32
+margin_top = -14.38
+margin_right = 83.68
+margin_bottom = 421.62
+theme = SubResource( 10 )
 fixed_icon_size = Vector2( 64, 64 )
 
 [node name="Coin_Count" type="Label" parent="UI"]
@@ -244,8 +427,8 @@ anchor_left = 0.01
 anchor_top = 0.1
 anchor_right = 0.99
 anchor_bottom = 0.1
-margin_left = -0.24
-margin_right = -3.76001
+margin_left = -32.6
+margin_right = 26.6
 margin_bottom = 30.0
 rect_min_size = Vector2( 1000, 30 )
 max_value = 10.0
@@ -267,10 +450,11 @@ anchor_left = 0.146
 anchor_top = 0.197
 anchor_right = 0.146
 anchor_bottom = 0.197
-margin_left = -40.504
-margin_top = 377.8
-margin_right = 329.496
-margin_bottom = 457.8
+margin_left = -39.16
+margin_top = 351.62
+margin_right = 184.84
+margin_bottom = 427.62
+theme = SubResource( 17 )
 max_columns = 9
 same_column_width = true
 fixed_icon_size = Vector2( 64, 64 )
@@ -281,24 +465,38 @@ anchor_left = 0.117
 anchor_top = 0.712
 anchor_right = 0.117
 anchor_bottom = 0.712
-margin_left = 0.191994
-margin_top = -0.200012
-margin_right = 61.192
-margin_bottom = 60.8
+margin_left = -21.32
+margin_top = 3.51996
+margin_right = 39.68
+margin_bottom = 64.52
 texture_normal = ExtResource( 13 )
 expand = true
 script = ExtResource( 14 )
 
-[node name="Farm_Label" type="Label" parent="UI"]
+[node name="Description" type="Label" parent="UI/NextSeed"]
 anchor_left = 0.495
-anchor_top = 0.901
-anchor_right = 0.94
-anchor_bottom = 0.951
-margin_right = 40.0
-margin_bottom = 14.0
+anchor_top = 0.915
+anchor_right = 0.989
+anchor_bottom = 0.991
+margin_left = 30.805
+margin_top = -61.815
+margin_right = 63.671
+margin_bottom = -48.855
 theme = SubResource( 3 )
 text = "Your Farm"
-align = 1
+valign = 1
+
+[node name="Money" type="Label" parent="UI"]
+anchor_left = 0.495
+anchor_top = 0.915
+anchor_right = 0.989
+anchor_bottom = 0.991
+margin_left = -387.2
+margin_top = 10.9
+margin_right = -354.334
+margin_bottom = 23.86
+theme = SubResource( 3 )
+text = "     10000       50000      100000"
 valign = 1
 
 [node name="Sounds" type="Node2D" parent="."]
@@ -321,6 +519,11 @@ stream = ExtResource( 12 )
 [node name="TickSFX" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource( 18 )
 volume_db = 2.761
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 25 )
+volume_db = -17.0
+autoplay = true
 
 [connection signal="timeout" from="Powerup_Timers/Time_freeze" to="Powerup_Timers/Time_freeze" method="_on_Time_freeze_timeout"]
 [connection signal="timeout" from="Powerup_Timers/Discount" to="Powerup_Timers/Discount" method="_on_Discount_timeout"]

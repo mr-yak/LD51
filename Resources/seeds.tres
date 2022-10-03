@@ -1,14 +1,14 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
 [sub_resource type="GDScript" id=1]
-script/source = "var name = [\"Apple\", \"Orange\", \"Plum\"]
-var planting_cost = [100, 200, 400]
-var unlock_cost = [0, 1500, 3000]
-var value = [200, 500, 1000]
-var texture = [load(\"res://Assets/Seeds/seed1.png\"), load(\"res://Assets/Seeds/seed2.png\"), load(\"res://Assets/Seeds/seed3.png\")]
-var tile_index_seed = [2, 5, 8]
-var tile_index_growing = [3, 6, 9]
-var tile_index_grown = [4, 7, 10]
+script/source = "var name = [\"Apple\", \"Orange\", \"Plum\", \"4\", \"5\", \"6\"]
+var planting_cost = [100, 200, 400, 800, 1600, 3200]
+var unlock_cost = [0, 1500, 3000, 6000, 12000, 24000]
+var value = [200, 500, 1000, 2000, 4000, 8000, 16000]
+var texture = [load(\"res://Assets/Seeds/seed1.png\"), load(\"res://Assets/Seeds/seed2.png\"), load(\"res://Assets/Seeds/seed3.png\"), load(\"res://Assets/Seeds/seed4.png\"), load(\"res://Assets/Seeds/seed5.png\"), load(\"res://Assets/Seeds/seed6.png\")]
+var tile_index_seed = [2, 5, 8, 11, 14, 17]
+var tile_index_growing = [3, 6, 9, 12, 15, 18]
+var tile_index_grown = [4, 7, 10, 13, 16, 19]
 "
 
 [resource]

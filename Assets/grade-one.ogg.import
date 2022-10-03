@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/grade-one.ogg-1dcff601cd231ab813e0344dbf338efe.oggstr"
+
+[deps]
+
+source_file="res://Assets/grade-one.ogg"
+dest_files=[ "res://.import/grade-one.ogg-1dcff601cd231ab813e0344dbf338efe.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

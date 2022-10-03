@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/melody-meadow_2.ogg-2b93f97e6067705e369600072013dd7e.oggstr"
+
+[deps]
+
+source_file="res://Assets/melody-meadow_2.ogg"
+dest_files=[ "res://.import/melody-meadow_2.ogg-2b93f97e6067705e369600072013dd7e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -93,7 +93,7 @@ func collect_crop(crop_pos, crop_index):
 func add_to_inventory(seed_num):
 	if(coins - seeds.unlock_cost[seed_num]>=0):
 		$Sounds/CoinSFX.play()
-		$UI/Shop.set_item_disabled(seed_num, true)
+#		$UI/Shop.set_item_disabled(seed_num, true)
 		inventory.add_icon_item(seeds.texture[seed_num])
 		items_in_list.append(seeds.texture[seed_num])
 		coins -= discount*seeds.unlock_cost[seed_num]
@@ -124,7 +124,7 @@ func _on_ItemList_nothing_selected():
 
 
 func time_freeze_powerup():
-	$Powerup_Timers/Time_Freeze.start()
+	$Powerup_Timers/Time_freeze.start()
 	quota_timer.paused = true
 	quota_timer.get_parent().texture_progress = frozen_tex
 	
@@ -135,8 +135,10 @@ func time_freeze_timeout():
 	
 func discount():
 	discount = 0.5
+	$Powerup_Timers/Discount.start()
 
 func income_double_ten_sec():
 	income = 2
+	$Powerup_Timers/Income.start()
 
  

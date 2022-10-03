@@ -17,6 +17,13 @@ run/main_scene="res://Scenes/Menu.tscn"
 
 Score="*res://Scripts/Score.gd"
 
+[display]
+
+window/size/width=960
+window/size/height=540
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

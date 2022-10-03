@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Resources/Fonts/Button.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/Quit_game.gd" type="Script" id=2]
@@ -6,10 +6,56 @@
 [ext_resource path="res://Resources/Fonts/Title_Theme.tres" type="Theme" id=4]
 [ext_resource path="res://Scripts/Play.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Buttons/Button.png" type="Texture" id=6]
+[ext_resource path="res://Assets/background.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Fonts/m6x11.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scenes/CheckBox.gd" type="Script" id=9]
+[ext_resource path="res://Assets/grade-one.ogg" type="AudioStream" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="DynamicFont" id=6]
+size = 48
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
+CheckBox/styles/disabled = SubResource( 8 )
+CheckBox/styles/focus = SubResource( 9 )
+CheckBox/styles/hover = SubResource( 10 )
+CheckBox/styles/hover_pressed = SubResource( 11 )
+CheckBox/styles/normal = SubResource( 12 )
+CheckBox/styles/pressed = SubResource( 13 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 446, 337 )
+scale = Vector2( 1.569, 1.569 )
+texture = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="."]
 anchor_top = 0.2
@@ -18,15 +64,22 @@ anchor_bottom = 0.25
 margin_top = 0.200001
 margin_bottom = 88.2
 theme = ExtResource( 4 )
-text = "10 Second Farm"
+text = "Frantic Farmer"
 align = 1
 valign = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 102.4
-margin_top = 305.0
-margin_right = 932.4
-margin_bottom = 355.0
+margin_left = 79.0
+margin_top = 240.0
+margin_right = 909.0
+margin_bottom = 290.0
+texture = ExtResource( 6 )
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 82.0
+margin_top = 367.0
+margin_right = 912.0
+margin_bottom = 417.0
 texture = ExtResource( 6 )
 
 [node name="Play" type="Button" parent="."]
@@ -34,8 +87,10 @@ anchor_left = 0.1
 anchor_top = 0.5
 anchor_right = 0.9
 anchor_bottom = 0.55
-margin_right = 12.0
-margin_bottom = 31.5
+margin_left = 3.0
+margin_top = -32.0
+margin_right = 15.0
+margin_bottom = -0.5
 theme = ExtResource( 1 )
 text = "Play"
 flat = true
@@ -46,9 +101,16 @@ anchor_left = 0.1
 anchor_top = 0.65
 anchor_right = 0.9
 anchor_bottom = 0.7
-margin_right = 12.0
-margin_bottom = 23.0
+margin_left = 4.0
+margin_top = 19.0
+margin_right = 16.0
+margin_bottom = 42.0
 theme = ExtResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 text = "Quit"
 script = ExtResource( 2 )
 
@@ -57,6 +119,21 @@ script = ExtResource( 2 )
 [node name="ButtonSFX" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource( 3 )
 
+[node name="CheckBox" type="CheckBox" parent="."]
+anchor_right = 0.025
+anchor_bottom = 0.044
+margin_right = 190.0
+margin_bottom = 26.24
+theme = SubResource( 7 )
+text = "Fullscreen"
+script = ExtResource( 9 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -17.0
+autoplay = true
+
 [connection signal="button_up" from="Play" to="Play" method="_on_Play_button_up"]
 [connection signal="button_up" from="Quit" to="Quit" method="_on_Quit_button_up"]
 [connection signal="finished" from="Sounds/ButtonSFX" to="Play" method="_on_ButtonSFX_finished"]
+[connection signal="toggled" from="CheckBox" to="CheckBox" method="_on_CheckBox_toggled"]
