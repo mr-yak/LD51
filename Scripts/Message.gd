@@ -9,3 +9,4 @@ func _ready():
 		rng.randomize()
 	var key = rng.randi_range(0, messages.size()-1)
 	text = "You Got " + messages[key]
+	

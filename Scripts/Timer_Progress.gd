@@ -11,4 +11,5 @@ func _process(_delta):
 func _on_Quota_Timer_timeout():
 	rnd += 1
 	req_coin_label.update_timer(rnd)
+	get_tree().get_root().get_node("Score").score = rnd
 	
